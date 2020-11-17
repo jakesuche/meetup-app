@@ -5,24 +5,25 @@
         <div class="container">
           <h2 class="subtitle">
             <!-- TODO: meetup startDate -->
-            14th January 2019
+            {{meetup.startDate | formatDate}}
           </h2>
           <h1 class="title">
             <!-- TODO: title -->
-            Burger Lovers Meetup
+           {{meetup.title}}
           </h1>
           <article class="media v-center">
             <figure class="media-left">
               <p class="image is-64x64">
                 <!-- OPTIONAL: meetupCreator avatar -->
-                <img class="is-rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuqyc3j2s3bL4DIkC8uC9h0rcAdsDXcwJPNh8XHWbLQfHbOpVU">
+                <img class="is-rounded" :src="meetup.meetupCreator.avatar">
+              
               </p>
             </figure>
             <div class="media-content">
               <div class="content">
                 <p>
                   <!-- OPTIONAL: meetupCreator name -->
-                  Created by <strong>John Doe</strong>
+                  Created by <strong>{{meetup.meetupCreator.name}}</strong>
                 </p>
               </div>
             </div>
@@ -43,22 +44,22 @@
                 <div class="meetup-side-box-date m-b-sm">
                   <p><b>Date</b></p>
                   <!-- TODO: meetup startDate -->
-                  <p>14th January 2018</p>
+                  <p>{{meetup.startDate | formatDate}}</p>
                 </div>
                 <div class="meetup-side-box-date m-b-sm">
                   <p><b>Time</b></p>
                   <!-- TODO: meetup timeFrom - timeTo -->
-                  <span>14:00</span> - <span>18:00</span>
+                  <span>{{meetup.timeFrom}}</span> - <span>{{meetup.timeTo}}</span>
                 </div>
                 <div class="meetup-side-box-place m-b-sm">
                   <p><b>How to find us</b></p>
                   <!-- TODO: meetup location -->
-                  <p>Bratislava, SK</p>
+                  <p>{{meetup.location}}</p>
                 </div>
                 <div class="meetup-side-box-more-info">
                   <p><b>Additional Info</b></p>
                   <!-- TODO: meetup shortInfo -->
-                  <p>Just some short info</p>
+                  <p>{{meetup.shortInfo}}</p>
                 </div>
               </div>
               <div class="meetup-side-box-map">
@@ -89,7 +90,7 @@
             <div class="content is-medium">
               <h3 class="title is-3">About the Meetup</h3>
               <!-- TODO: meetup description -->
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, obcaecati veniam mollitia quisquam asperiores voluptatum corporis est, quaerat quae eaque similique officiis impedit, necessitatibus pariatur. Perspiciatis laudantium ipsum eum, neque.</p>
+              <p>{{meetup.description}}</p>
               <!-- Join Meetup, We will handle it later (: -->
               <button class="button is-primary">Join In</button>
               <!-- Not logged In Case, handle it later (: -->
@@ -153,6 +154,7 @@ export default {
 
         }
     }, 
+
     
     created(){
         axios.get(`/api/v1/meetups/${this.$route.params.id}`)
@@ -160,7 +162,8 @@ export default {
            this.meetup = res.data
         })
 
-    }
+    },
+    
     
 }
 </script>
