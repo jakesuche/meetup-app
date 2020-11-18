@@ -3,7 +3,8 @@
 
         <!-- router link -->
           <!-- <router-link :to="'/meetup/' + meetup._id" class="card large"> -->
-          <router-link :to="{name: 'pageMeetupDetail',params:{id:meetup._id}}" class="card large">
+          <div class="card-large">
+          <router-link :to="{name: 'pageMeetupDetail',params:{id:meetup._id}}"  class="card-meetup-link">
             <div class="card-image">
               <figure class="image is-4by3">
                   <!-- image  -->
@@ -38,6 +39,7 @@
               </div>
             </div>
           </router-link>
+          </div>
           <!-- router link stop -->
         </div>
 </template>
@@ -53,6 +55,10 @@ export default {
 <style scoped>
  .is-rounded {
     border-radius: 10px !important;
+  }
+  .card-meetup-link {
+      color:black
+
   }
 
 </style>>

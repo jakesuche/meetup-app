@@ -4,6 +4,7 @@ import Router  from 'vue-router'
 
 import PageHome from '@/pages/pageHome'
 import PageMeetup from '@/pages/pageMeetupDetails'
+import pageMeetupFind  from '@/pages/pageMeetupFind'
 
 Vue.use(Router)
 
@@ -15,10 +16,16 @@ const router = new Router({
       component: PageHome,
     },
     {
+      path:"/find",
+      name:'PageMeetupFine',
+      component: pageMeetupFind
+    },
+    {
       path: '/meetup/:id/',
       name: "pageMeetupDetail",
       component: PageMeetup,
     },
+    
   ],
   mode:'history'
 });

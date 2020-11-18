@@ -3,6 +3,7 @@ const Thread = require('../models/threads');
 exports.getThreads = function(req, res) {
   const meetupId = req.query.meetupId;
 
+
   Thread.find({})
         .where({'meetup': meetupId})
         .populate({
@@ -15,7 +16,7 @@ exports.getThreads = function(req, res) {
     if (errors) {
       return res.status(422).send({errors});
     }
-
-    return res.json(threads);
+    
+     return res.json(threads);
   });
 }

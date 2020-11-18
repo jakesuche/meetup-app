@@ -3,9 +3,12 @@
 <template>
   <nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <h1 class="title is-4">Meetuper</h1>
-      </a>
+      <router-link :to="'/'" class="navbar-item" href="https://bulma.io">
+      
+          <h1 class="title is-4">Meetuper</h1>
+     
+        
+      </router-link>
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -15,13 +18,13 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">
+        <router-link :to="'/'" class="navbar-item">
           Home
-        </a>
+        </router-link>
 
-        <a class="navbar-item">
+        <router-link :to="{name:'PageMeetupFine'}" class="navbar-item">
           Find
-        </a>
+        </router-link>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
